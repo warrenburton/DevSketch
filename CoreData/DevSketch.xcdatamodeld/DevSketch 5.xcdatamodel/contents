@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14270.11" systemVersion="17F70a" minimumToolsVersion="Xcode 7.0" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="DDBuiltIn" representedClassName="DDBuiltIn" versionHashModifier="v5" syncable="YES">
+        <attribute name="documentation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headername" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isSwiftBuiltIn" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="parent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="framework" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDFramework" inverseName="members" inverseEntity="DDFramework" syncable="YES"/>
+    </entity>
+    <entity name="DDClass" representedClassName="DDClass" parentEntity="DDObject" versionHashModifier="v5" syncable="YES"/>
+    <entity name="DDCodeFragment" representedClassName="DDCodeFragment" versionHashModifier="v5" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inheritBody" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSystem" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isTemplate" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderingIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="childFragments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDCodeFragment" inverseName="parent" inverseEntity="DDCodeFragment" syncable="YES"/>
+        <relationship name="message" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDMessage" inverseName="fragments" inverseEntity="DDMessage" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDCodeFragment" inverseName="childFragments" inverseEntity="DDCodeFragment" syncable="YES"/>
+        <relationship name="property" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDProperty" inverseName="fragments" inverseEntity="DDProperty" syncable="YES"/>
+        <relationship name="test" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDTestCase" inverseName="fragments" inverseEntity="DDTestCase" syncable="YES"/>
+    </entity>
+    <entity name="DDDocument" representedClassName="DDDocument" versionHashModifier="v5" syncable="YES">
+        <attribute name="classprefix" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outputFolderSSData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="platform" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="useClassPrefix" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="frameworks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDFramework" inverseName="document" inverseEntity="DDFramework" syncable="YES"/>
+    </entity>
+    <entity name="DDEnum" representedClassName="DDEnum" parentEntity="DDObject" versionHashModifier="v5" syncable="YES">
+        <relationship name="members" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DDEnumMember" inverseName="enumeration" inverseEntity="DDEnumMember" syncable="YES"/>
+    </entity>
+    <entity name="DDEnumMember" representedClassName="DDEnumMember" versionHashModifier="v5" syncable="YES">
+        <attribute name="documentation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderingIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="enumeration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDEnum" inverseName="members" inverseEntity="DDEnum" syncable="YES"/>
+    </entity>
+    <entity name="DDFramework" representedClassName="DDFramework" versionHashModifier="v5" syncable="YES">
+        <attribute name="isSystemFramework" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="platform" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sdk" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDDocument" inverseName="frameworks" inverseEntity="DDDocument" syncable="YES"/>
+        <relationship name="members" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DDBuiltIn" inverseName="framework" inverseEntity="DDBuiltIn" syncable="YES"/>
+    </entity>
+    <entity name="DDMessage" representedClassName="DDMessage" versionHashModifier="v5" syncable="YES">
+        <attribute name="accessLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="argumentTypes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="documentation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isClassMethod" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isIBAction" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isObjCBridged" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isOptional" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isPublic" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftFinal" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftMutating" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftNonOC" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftOverride" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftThrowing" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderingIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="returnType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="searchableString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="signature" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="fragments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDCodeFragment" inverseName="message" inverseEntity="DDCodeFragment" syncable="YES"/>
+        <relationship name="object" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDObject" inverseName="messages" inverseEntity="DDObject" syncable="YES"/>
+        <relationship name="tests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDTestCase" inverseName="message" inverseEntity="DDTestCase" syncable="YES"/>
+    </entity>
+    <entity name="DDMetaLink" representedClassName="DDMetaLink" versionHashModifier="v5" syncable="YES">
+        <attribute name="direction" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="displayLabel" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metatype" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="endObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDObject" inverseName="inboundLinks" inverseEntity="DDObject" syncable="YES"/>
+        <relationship name="startObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDObject" inverseName="outboundLinks" inverseEntity="DDObject" syncable="YES"/>
+    </entity>
+    <entity name="DDMetaObject" representedClassName="DDMetaObject" parentEntity="DDObject" versionHashModifier="v5" syncable="YES">
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="renderType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="childObjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDMetaObject" inverseName="parentObject" inverseEntity="DDMetaObject" syncable="YES"/>
+        <relationship name="parentObject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDMetaObject" inverseName="childObjects" inverseEntity="DDMetaObject" syncable="YES"/>
+    </entity>
+    <entity name="DDObject" representedClassName="DDObject" versionHashModifier="v5" syncable="YES">
+        <attribute name="accessLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="documentation" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isObjCBridged" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isPlaceholder" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftNonOC" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metatype" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="orderingIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="parent" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="parentEmbedGUID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="searchableString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sourceURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="xpos" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="ypos" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="zpos" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="adoptedProtocols" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDProtocol" inverseName="adoptedBy" inverseEntity="DDProtocol" syncable="YES"/>
+        <relationship name="dependedOnBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDObject" inverseName="dependsOn" inverseEntity="DDObject" syncable="YES"/>
+        <relationship name="dependsOn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDObject" inverseName="dependedOnBy" inverseEntity="DDObject" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDObjectGroup" inverseName="members" inverseEntity="DDObjectGroup" syncable="YES"/>
+        <relationship name="inboundLinks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDMetaLink" inverseName="endObject" inverseEntity="DDMetaLink" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DDMessage" inverseName="object" inverseEntity="DDMessage" syncable="YES"/>
+        <relationship name="outboundLinks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDMetaLink" inverseName="startObject" inverseEntity="DDMetaLink" syncable="YES"/>
+        <relationship name="properties" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DDProperty" inverseName="object" inverseEntity="DDProperty" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDTag" inverseName="objects" inverseEntity="DDTag" syncable="YES"/>
+        <relationship name="tests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDTestCase" inverseName="object" inverseEntity="DDTestCase" syncable="YES"/>
+    </entity>
+    <entity name="DDObjectGroup" representedClassName="DDObjectGroup" versionHashModifier="v5" syncable="YES">
+        <attribute name="guid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metatype" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDObjectGroup" inverseName="parent" inverseEntity="DDObjectGroup" syncable="YES"/>
+        <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDObject" inverseName="groups" inverseEntity="DDObject" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDObjectGroup" inverseName="children" inverseEntity="DDObjectGroup" syncable="YES"/>
+    </entity>
+    <entity name="DDProperty" representedClassName="DDProperty" versionHashModifier="v5" syncable="YES">
+        <attribute name="accessLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="documentation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasSwiftDidSet" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hasSwiftGetter" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hasSwiftSetter" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hasSwiftWillSet" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isAtomic" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isCoreData" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isIBOutlet" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isInitDependancy" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isObjCBridged" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isOCCopy" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isProtocol" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isPublic" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isReadOnly" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftClassVar" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftDynamic" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftLazy" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftLet" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftNonOC" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftNSManaged" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isSwiftOverride" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isWeak" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="newProperty" indexed="YES" syncable="YES"/>
+        <attribute name="orderingIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="searchableString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="swiftInitialValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="swiftPropertyType" optional="YES" attributeType="Integer 16" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="swiftWeakType" optional="YES" attributeType="Integer 16" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="id" syncable="YES"/>
+        <relationship name="fragments" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DDCodeFragment" inverseName="property" inverseEntity="DDCodeFragment" syncable="YES"/>
+        <relationship name="object" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDObject" inverseName="properties" inverseEntity="DDObject" syncable="YES"/>
+        <relationship name="tests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDTestCase" inverseName="property" inverseEntity="DDTestCase" syncable="YES"/>
+    </entity>
+    <entity name="DDProtocol" representedClassName="DDProtocol" parentEntity="DDObject" versionHashModifier="v5" syncable="YES">
+        <relationship name="adoptedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDObject" inverseName="adoptedProtocols" inverseEntity="DDObject" syncable="YES"/>
+    </entity>
+    <entity name="DDStruct" representedClassName="DDStruct" parentEntity="DDObject" versionHashModifier="v5" syncable="YES"/>
+    <entity name="DDTag" representedClassName="DDTag" versionHashModifier="v5" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rgbval" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="objects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDObject" inverseName="tags" inverseEntity="DDObject" syncable="YES"/>
+    </entity>
+    <entity name="DDTestCase" representedClassName="DDTestCase" versionHashModifier="v5" syncable="YES">
+        <attribute name="bddLevel" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="context" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="documentation" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="expectedValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="framework" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="givenThatContext" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inputValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="orderingIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="purpose" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thenContext" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="whenContext" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="childTests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDTestCase" inverseName="parent" inverseEntity="DDTestCase" syncable="YES"/>
+        <relationship name="fragments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDCodeFragment" inverseName="test" inverseEntity="DDCodeFragment" syncable="YES"/>
+        <relationship name="message" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDMessage" inverseName="tests" inverseEntity="DDMessage" syncable="YES"/>
+        <relationship name="object" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDObject" inverseName="tests" inverseEntity="DDObject" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDTestCase" inverseName="childTests" inverseEntity="DDTestCase" syncable="YES"/>
+        <relationship name="property" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDProperty" inverseName="tests" inverseEntity="DDProperty" syncable="YES"/>
+    </entity>
+    <fetchRequest name="allBuiltIns" entity="DDBuiltIn"/>
+    <fetchRequest name="allClasses" entity="DDClass"/>
+    <fetchRequest name="allObjects" entity="DDObject"/>
+    <fetchRequest name="allProtocols" entity="DDProtocol"/>
+    <fetchRequest name="allTags" entity="DDTag"/>
+    <fetchRequest name="builtinWhichStartsWithString" entity="DDBuiltIn" predicateString="name BEGINSWITH[cd] $string"/>
+    <fetchRequest name="builtinWithName" entity="DDBuiltIn" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="classWithName" entity="DDClass" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="classWithNameAndParent" entity="DDClass" predicateString="name LIKE[cd] $name AND parent LIKE[cd] $parent"/>
+    <fetchRequest name="classWithParentName" entity="DDClass" predicateString="parent LIKE[cd] $parent"/>
+    <fetchRequest name="enumWithName" entity="DDEnum" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="objectWithName" entity="DDObject" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="oneDocument" entity="DDDocument"/>
+    <fetchRequest name="propertyWithType" entity="DDProperty" predicateString="type LIKE[cd] $type"/>
+    <fetchRequest name="protocolWithName" entity="DDProtocol" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="structWithName" entity="DDStruct" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="tagWithName" entity="DDTag" predicateString="name LIKE[cd] $name"/>
+    <elements>
+        <element name="DDBuiltIn" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="DDClass" positionX="-657" positionY="-36" width="128" height="45"/>
+        <element name="DDCodeFragment" positionX="466" positionY="194" width="128" height="240"/>
+        <element name="DDDocument" positionX="-18" positionY="-369" width="128" height="165"/>
+        <element name="DDEnum" positionX="-434" positionY="-0" width="128" height="60"/>
+        <element name="DDEnumMember" positionX="-675" positionY="-270" width="128" height="165"/>
+        <element name="DDFramework" positionX="-333" positionY="-261" width="128" height="150"/>
+        <element name="DDMessage" positionX="16" positionY="216" width="128" height="375"/>
+        <element name="DDMetaLink" positionX="-711" positionY="-693" width="128" height="150"/>
+        <element name="DDMetaObject" positionX="-488" positionY="-351" width="128" height="120"/>
+        <element name="DDObject" positionX="-882" positionY="-108" width="128" height="465"/>
+        <element name="DDObjectGroup" positionX="-882" positionY="-369" width="128" height="180"/>
+        <element name="DDProperty" positionX="-207" positionY="261" width="128" height="570"/>
+        <element name="DDProtocol" positionX="-648" positionY="81" width="128" height="60"/>
+        <element name="DDStruct" positionX="-434" positionY="-70" width="128" height="45"/>
+        <element name="DDTag" positionX="-225" positionY="-24" width="128" height="120"/>
+        <element name="DDTestCase" positionX="178" positionY="-306" width="128" height="330"/>
+    </elements>
+</model>

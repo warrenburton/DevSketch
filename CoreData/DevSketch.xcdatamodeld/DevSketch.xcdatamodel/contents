@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DDBuiltIn" representedClassName="DDBuiltIn" syncable="YES">
+        <attribute name="headername" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="parent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="framework" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDFramework" inverseName="members" inverseEntity="DDFramework" syncable="YES"/>
+    </entity>
+    <entity name="DDClass" representedClassName="DDClass" parentEntity="DDObject" syncable="YES">
+        <relationship name="adoptedProtocols" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDProtocol" inverseName="adoptedBy" inverseEntity="DDProtocol" syncable="YES"/>
+        <relationship name="dependedOnBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDClass" inverseName="dependsOn" inverseEntity="DDClass" syncable="YES"/>
+        <relationship name="dependsOn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDClass" inverseName="dependedOnBy" inverseEntity="DDClass" syncable="YES"/>
+        <relationship name="tests" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DDTestCase" inverseName="object" inverseEntity="DDTestCase" syncable="YES"/>
+    </entity>
+    <entity name="DDDocument" representedClassName="DDDocument" syncable="YES">
+        <attribute name="classprefix" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="outputFolderSSData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="platform" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="useClassPrefix" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="frameworks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDFramework" inverseName="document" inverseEntity="DDFramework" syncable="YES"/>
+    </entity>
+    <entity name="DDFramework" representedClassName="DDFramework" syncable="YES">
+        <attribute name="isSystemFramework" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="platform" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sdk" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="document" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDDocument" inverseName="frameworks" inverseEntity="DDDocument" syncable="YES"/>
+        <relationship name="members" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DDBuiltIn" inverseName="framework" inverseEntity="DDBuiltIn" syncable="YES"/>
+    </entity>
+    <entity name="DDMessage" representedClassName="DDMessage" syncable="YES">
+        <attribute name="argumentTypes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="documentation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isClassMethod" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isIBAction" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isOptional" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isPublic" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="returnType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="signature" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="object" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDObject" inverseName="messages" inverseEntity="DDObject" syncable="YES"/>
+    </entity>
+    <entity name="DDObject" representedClassName="DDObject" isAbstract="YES" syncable="YES">
+        <attribute name="documentation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isPlaceholder" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="parent" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="xpos" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="ypos" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="zpos" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DDMessage" inverseName="object" inverseEntity="DDMessage" syncable="YES"/>
+        <relationship name="properties" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DDProperty" inverseName="object" inverseEntity="DDProperty" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDTag" inverseName="objects" inverseEntity="DDTag" syncable="YES"/>
+    </entity>
+    <entity name="DDProperty" representedClassName="DDProperty" syncable="YES">
+        <attribute name="documentation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isAtomic" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isCoreData" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isIBOutlet" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isInitDependancy" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isProtocol" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isPublic" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isReadOnly" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isWeak" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="newProperty" indexed="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="id" syncable="YES"/>
+        <relationship name="object" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDObject" inverseName="properties" inverseEntity="DDObject" syncable="YES"/>
+    </entity>
+    <entity name="DDProtocol" representedClassName="DDProtocol" parentEntity="DDObject" syncable="YES">
+        <relationship name="adoptedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDClass" inverseName="adoptedProtocols" inverseEntity="DDClass" syncable="YES"/>
+    </entity>
+    <entity name="DDTag" representedClassName="DDTag" syncable="YES">
+        <attribute name="metadata" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rgbval" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="objects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DDObject" inverseName="tags" inverseEntity="DDObject" syncable="YES"/>
+    </entity>
+    <entity name="DDTestCase" representedClassName="DDTestCase" syncable="YES">
+        <attribute name="framework" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="purpose" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="object" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DDClass" inverseName="tests" inverseEntity="DDClass" syncable="YES"/>
+    </entity>
+    <fetchRequest name="allBuiltIns" entity="DDBuiltIn"/>
+    <fetchRequest name="allClasses" entity="DDClass"/>
+    <fetchRequest name="allObjects" entity="DDObject"/>
+    <fetchRequest name="allProtocols" entity="DDProtocol"/>
+    <fetchRequest name="allTags" entity="DDTag"/>
+    <fetchRequest name="builtinWhichStartsWithString" entity="DDBuiltIn" predicateString="name BEGINSWITH[cd] $string"/>
+    <fetchRequest name="builtinWithName" entity="DDBuiltIn" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="classWithName" entity="DDClass" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="classWithNameAndParent" entity="DDClass" predicateString="name LIKE[cd] $name AND parent LIKE[cd] $parent"/>
+    <fetchRequest name="classWithParentName" entity="DDClass" predicateString="parent LIKE[cd] $parent"/>
+    <fetchRequest name="objectWithName" entity="DDObject" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="oneDocument" entity="DDDocument"/>
+    <fetchRequest name="propertyWithType" entity="DDProperty" predicateString="type LIKE[cd] $type"/>
+    <fetchRequest name="protocolWithName" entity="DDProtocol" predicateString="name LIKE[cd] $name"/>
+    <fetchRequest name="tagWithName" entity="DDTag" predicateString="name LIKE[cd] $name"/>
+    <elements>
+        <element name="DDBuiltIn" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="DDClass" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="DDDocument" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="DDFramework" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="DDMessage" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="DDObject" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="DDProperty" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="DDProtocol" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="DDTag" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="DDTestCase" positionX="0" positionY="0" width="128" height="105"/>
+    </elements>
+</model>
