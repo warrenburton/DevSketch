@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>DevSketchDocs</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Devsketch</h1>
+
+<ul>
+<li><a href="#introduction">What is DevSketch</a></li>
+<li><a href="#getting_started">Getting started</a></li>
+<li><a href="#setting_up">Setting up the workspace</a></li>
+<li><a href="#working_with">Working with the workspace. </a></li>
+<li><a href="#visual_map">Visual Map</a></li>
+<li><a href="#adding_object">Adding an object</a></li>
+<li><a href="#deleting">Deleting</a></li>
+<li><a href="#expand_collapse">Expand and collapse</a></li>
+<li><a href="#heatmap">The Heat Map or What are those Circles?</a></li>
+<li><a href="#orphan_inspector">Orphan Inspector: All about orphans</a></li>
+<li><a href="#refactoring">Refactoring</a></li>
+<li><a href="#adding_tests">Adding Tests</a></li>
+<li><a href="#code_output">Code Output</a></li>
+<li><a href="#analysing">Analysing an existing project.</a></li>
+</ul>
+
+<h2 id="toc_1"><a name="introduction"></a>What is DevSketch</h2>
+
+<p>DevSketch is a tool for Swift and Objective-C developers. Its good for prototyping components and analysing existing code bases. </p>
+
+<h2 id="toc_2"><a name="getting_started"></a>Getting started</h2>
+
+<p>Create a new document. You can choose from 4 preset sets of SDK&rsquo;s or just carry on by clicking the close button.</p>
+
+<p><img src="img/new_doc.png" alt="new document selection"></p>
+
+<h2 id="toc_3"><a name="setting_up"></a>Setting up the workspace</h2>
+
+<p>You can configure the workspace in a couple of places. </p>
+
+<h3 id="toc_4">Application level preferences</h3>
+
+<p>Select <strong>DevSketch &gt; Preferences…</strong></p>
+
+<p>This window allows you to pick which Xcode you are using. </p>
+
+<p>You can tell DevSketch who you are:  </p>
+
+<p><img src="img/setup1.png" alt="identification"></p>
+
+<p>How you&rsquo;d like your headers to be generated:</p>
+
+<p><img src="img/setup2.png" alt="identification"></p>
+
+<h3 id="toc_5">Document Level Preferences</h3>
+
+<p>Select <strong>Document &gt; Edit Document Settings…</strong></p>
+
+<p><img src="img/doc_setup.png" alt="document setup"></p>
+
+<p>Here you can add or remove SDKs and give the project a name. </p>
+
+<p>If you are generating Objective-C code you can add a prefix to all type names. </p>
+
+<h2 id="toc_6"><a name="working_with"></a>Working with the workspace.</h2>
+
+<h3 id="toc_7">Main window</h3>
+
+<p>The document window has 3 sections. 
+<img src="img/workspace.png" alt="main window"></p>
+
+<h4 id="toc_8">Libraries on the left.</h4>
+
+<p>This is where you find objects you have created or objects from the SDK&rsquo;s that your project contains. </p>
+
+<h4 id="toc_9">Visual Map in the center.</h4>
+
+<p>This is visual map of your objects and its relationships to other objects. An object can exist in the library but not be visible on the map. </p>
+
+<h4 id="toc_10">Inspectors on the right.</h4>
+
+<p>The inspectors tell you about the selected object (or objects). </p>
+
+<p>You can collapse or expand the left and right sections by: </p>
+
+<ul>
+<li>dragging the vertical split.</li>
+<li>using the key shortcuts CMD+0 for the left, CMD+ALT+0 for the right.</li>
+</ul>
+
+<h2 id="toc_11"><a name="visual_map"></a>Visual Map</h2>
+
+<p>This contains a representation of the objects in your workspace. </p>
+
+<h3 id="toc_12"><a name="adding_object"></a>Adding an object</h3>
+
+<p>Double click on the map to add a new <em>Class</em> object. </p>
+
+<p><img src="img/type_class.png" alt="Class"></p>
+
+<p>Right click on the map and select from the menu to add any other kind of object. </p>
+
+<ul>
+<li>Protocol</li>
+</ul>
+
+<p><img src="img/type_protocol.png" alt="Protocol"></p>
+
+<ul>
+<li>Struct </li>
+</ul>
+
+<p><img src="img/type_struct.png" alt="Struct"></p>
+
+<ul>
+<li>You may convert from class to struct (or struct to class) by right-clicking the object. </li>
+<li><p>Objective-C does not support code generation for structs.</p></li>
+<li><p>Enumeration</p></li>
+</ul>
+
+<p><img src="img/type_enum.png" alt="Enumeration"></p>
+
+<ul>
+<li>Extension</li>
+</ul>
+
+<p><img src="img/type_extension.png" alt="Extension"></p>
+
+<h4 id="toc_13">Editing an object</h4>
+
+<p><img src="img/edit_name.png" alt="Edit Name"></p>
+
+<ul>
+<li><p>Double click the object to edit the name and parent.</p>
+
+<p><img src="img/edit_docs.png" alt="Edit documentation"></p>
+
+<ul>
+<li>Double click the documentation panel (ALT+Space) to edit the description.</li>
+</ul></li>
+</ul>
+
+<h4 id="toc_14"><a name="deleting"></a>Deleting</h4>
+
+<ul>
+<li>Delete the object from the map with the Delete key. (<strong>Edit &gt; Delete from view</strong>)The object will still be in the database. </li>
+<li>Delete the object from the database with ALT+Delete (ALT + <strong>Edit &gt; Delete from database</strong>) </li>
+</ul>
+
+<h4 id="toc_15">Adding a property</h4>
+
+<p>Select the object and press CMD+L (<strong>Object &gt; Add Property</strong>) </p>
+
+<p><img src="img/add_property.png" alt="Add a property"></p>
+
+<ul>
+<li>You can enter the name in spaced language and that will be converted to Camel-Case e.g <em>&ldquo;page number&rdquo;</em> becomes <em>pageNumber</em></li>
+<li>You can enter the type Swift-style with a colon <em>name:type</em> or just fill in the Type field. </li>
+</ul>
+
+<p>Click <strong>Add</strong> to commit the addition.</p>
+
+<p>You can edit the property: </p>
+
+<ul>
+<li>In the right hand inspector.</li>
+<li>By double-clicking the property on the map.<br></li>
+</ul>
+
+<h4 id="toc_16">Adding a method</h4>
+
+<p>Select the object and press CMD+M (<strong>Object &gt; Add Method</strong>)</p>
+
+<p><img src="img/add_message.png" alt="Add a method"></p>
+
+<ul>
+<li>You can enter the message in Swift like format. DevSketch will do its best to figure out what you want. </li>
+<li>Spaced signatures will get Camel-Cased. </li>
+<li>Use <strong>(</strong> to start arguments composition.<br></li>
+<li>Use <strong>-&gt;</strong> to start return type description.</li>
+</ul>
+
+<p>e.g </p>
+
+<ul>
+<li><em>do this(foo</em>  becomes <em>func doThis(foo: Any)</em></li>
+<li><em>do that -&gt; Thing</em> becomes <em>func doThat() -&gt; Thing</em></li>
+<li><em>look at that(foo: Bar) Baz</em> becomes <em>lookAtThat(foo: Bar) -&gt; Baz</em></li>
+<li><em>render image( completion:(UIImage)-&gt;()</em> becomes <em>renderImage( completion:(UIImage) -&gt; ())</em></li>
+</ul>
+
+<p>You can edit the method: </p>
+
+<ul>
+<li>in the right hand inspector</li>
+<li>by double-clicking the method on the map. </li>
+</ul>
+
+<p>![Double click method] </p>
+
+<h4 id="toc_17"><a name="expand_collapse"></a>Expand and collapse</h4>
+
+<p>The map representation of an object can be collapsed or expanded. </p>
+
+<p><img src="img/expanded_collapsed.png" alt="expanded or collapsed"></p>
+
+<ul>
+<li>Use CMD+[ to collapse (<strong>Object &gt; Collapse Representation</strong>)</li>
+<li>Use CMD+] to expand (<strong>Object &gt; Expand Representation</strong>)</li>
+</ul>
+
+<p>Expanded representations will hide the table at smaller magnifications.</p>
+
+<h3 id="toc_18"><a name="heatmap"></a> The Heat Map or What are those Circles?</h3>
+
+<p>You can see that there are circles around your objects. This is the heat map.</p>
+
+<p>It shows the relative density of connections to an object. It allows you to see from a distance what objects are important or overused within a code base </p>
+
+<p><img src="img/heatmap.png" alt="Heatmap"></p>
+
+<p>Denser colors mean that this object has relatively more connections than others. </p>
+
+<p>You can change the colors in the preferences panel. <strong>DevSketch &gt; Preferences…</strong></p>
+
+<p><img src="img/color_prefs.png" alt="Color preferences"></p>
+
+<p>If you don&rsquo;t want to see the heat map use <strong>View &gt; Hide Heat Map</strong></p>
+
+<h3 id="toc_19"><a name="orphan_inspector"></a> Orphan Inspector: All about orphans</h3>
+
+<p>DevSketch will examine your object definition and look for types that don&rsquo;t exist in your database or the imported SDK&rsquo;s.</p>
+
+<p>What this means is you can declare a type ahead of time:</p>
+
+<ul>
+<li>Declare <em>RenderOptions</em> as a type.</li>
+</ul>
+
+<p><img src="img/orphans_stage1.png" alt="Declare Type"></p>
+
+<ul>
+<li><em>RenderOptions</em> appears as an orphan type. Drag a object type to the map to create. </li>
+</ul>
+
+<p><img src="img/orphans_stage2.png" alt="Inspect orphans"></p>
+
+<ul>
+<li>Start defining what <em>RenderOptions</em> should do and what attributes it should have.</li>
+</ul>
+
+<p><img src="img/orphans_stage3.png" alt="Inspect orphans"></p>
+
+<p>The <strong>Orphan Inspector</strong> allows you to be flexible in your design and naming. If you are not sure what an object should be named or if it should even exist you can delay creation till you are ready. </p>
+
+<h2 id="toc_20"><a name="refactoring"></a>Refactoring</h2>
+
+<p>While you are working you will inevitably discover points where you want to change the design. </p>
+
+<h4 id="toc_21">Create an adopted protocol.</h4>
+
+<ul>
+<li><em>You decide that a markup page should be represented by a protocol. You need refactor some of the attributes of</em> <strong>MarkupPage</strong> <em>out.</em></li>
+</ul>
+
+<p><img src="img/create_child.png" alt="Create child object"></p>
+
+<ol>
+<li>Hold down <em>ALT</em> and drag away from the origin object.</li>
+<li>Release the mouse where you want to place your new object.</li>
+<li><p>Select what object type you want to create from the menu.</p></li>
+</ol>
+
+<ul>
+<li>Create a protocol called <strong>PageDescription</strong></li>
+</ul>
+
+<h4 id="toc_22">Move the attributes you want to shift to the protocol.</h4>
+
+<p>Expand the source object (CMD+]) if you haven&rsquo;t already. </p>
+
+<p>Select the attributes you want to move. You can pick multiple items with the SHIFT or CMD modifiers.</p>
+
+<p>There are two ways to move attributes from one object to another. </p>
+
+<ol>
+<li>Standard Cut/Copy/Paste with the keyboard or menus. </li>
+<li>Drag from source to destination. This is always a <em>Copy</em> operation. </li>
+</ol>
+
+<p><img src="img/refactor1.png" alt="Refactor stage 1"></p>
+
+<ul>
+<li><em>You think that it&rsquo;s strange that page should have the responsibility of rendering itself. Why not move that functionality to a new class.</em></li>
+</ul>
+
+<p><img src="img/refactor2.png" alt="Refactor stage 2"></p>
+
+<h3 id="toc_23"><a name="adding_tests"></a>Adding Tests</h3>
+
+<p>All good code deserves tests. DevSketch allows you to define the tests. </p>
+
+<ul>
+<li><em>You take a look at the structure and figure out that the only thing that needs tests is</em> <strong>PageRenderer</strong>. <em>The other classes are containers.</em></li>
+</ul>
+
+<p>Select the object you want to add tests to and press <strong>CMD+T</strong> (Object &gt; Add Test)</p>
+
+<p><img src="img/adding_tests.png" alt="adding tests"></p>
+
+<h2 id="toc_24"><a name="code_output"></a>Code Output</h2>
+
+<p>Once you have sorted out how you want your system to work its time to generate code. </p>
+
+<p><img src="img/finished_design.png" alt="Finished design"></p>
+
+<p>This isn&rsquo;t finished code as you may need to make decisions about return values. Placeholders are left so that you do this where needed.</p>
+
+<p>DevSketch offers several ways to get your code into your project. </p>
+
+<h3 id="toc_25">Individual files</h3>
+
+<p>The <strong>Source Viewer</strong> is at the base of the right hand inspector. You can shrink it away when you aren&rsquo;t using it. </p>
+
+<p>You can choose to create code stubs in <em>Swift</em> or <em>Objective-C</em></p>
+
+<ul>
+<li>Copy to the pasteboard. </li>
+<li>Save the file. </li>
+<li>Drag the file proxy icon to the Xcode project tree or Finder. </li>
+</ul>
+
+<p><img src="img/code_gen1.png" alt="Source code"></p>
+
+<p>You can create either object or test code. </p>
+
+<p><img src="img/code_gen2.png" alt="Source code"></p>
+
+<p>When dragging a file to Xcode remember:</p>
+
+<ul>
+<li>Tick <strong>Copy files if needed</strong></li>
+<li>Tick a <strong>Target</strong> to add your files to.</li>
+</ul>
+
+<p><img src="img/copy_if_needed.png" alt="Source code"></p>
+
+<h3 id="toc_26">Bulk export</h3>
+
+<p>You can export many objects at the same time.</p>
+
+<p><strong>WARNING. This operation can overwrite files in your project. Make sure you are using source control</strong></p>
+
+<p>Use <strong>Document &gt; Export All…</strong></p>
+
+<p><img src="img/export_all.png" alt="Export All"></p>
+
+<h2 id="toc_27"><a name="analysing"></a>Analysing an existing project.</h2>
+
+<p>The other thing that DevSketch will do is analyse an existing project or single files.</p>
+
+<p>There are two ways to get files into DevSketch. </p>
+
+<h3 id="toc_28">Dragging individual files onto the map</h3>
+
+<p>Drag a file direct from the Xcode project explorer and any of the other proxies that are provided. Or drag from anywhere in macOS.</p>
+
+<p><img src="img/drag_sources.png" alt="Drag sources"></p>
+
+<h3 id="toc_29">Import an Xcode project</h3>
+
+<p>Ideally create a new document with the appropriate SDK set. Or just import into an existing project. You might be getting a lot of new content. </p>
+
+<p><em>The sample will look at an open source vector editor called <a href="https://github.com/sprang/Inkpad">Inkpad</a>.</em></p>
+
+<p>Open the Xcode tab in the left hand inspector.</p>
+
+<p><img src="img/import_step1.png" alt="Importing"></p>
+
+<p>Choose the folder that contains the <strong>.xcodeproj</strong> file. An import window will appear.</p>
+
+<p>Pick the folders and files you want to import. Press Import.</p>
+
+<p><img src="img/import_step2.png" alt="Importing"></p>
+
+<p>Depending on the size of the project this may take a little amount of time. DevSketch is looking for connections between all the objects. Go and grab a coffee. </p>
+
+<p><img src="img/import_step3.png" alt="Importing"></p>
+
+<p>You can hit the zoom to display all button to show all the objects. They will be stacked along the bottom of the page.</p>
+
+<h3 id="toc_30">Analysing a project</h3>
+
+<p>You may want to find out somethings about a codebase before you start to work on it. </p>
+
+<p>Most iOS projects have some <em>UIViewController</em> instances. Open the library tab. </p>
+
+<ol>
+<li>Drag a <em>UIViewController</em> from the library to the map. </li>
+<li>Right-click and &ldquo;Gather subclasses.</li>
+</ol>
+
+<p>You can now see all the view controllers gathered in one place. </p>
+
+<p><img src="img/analysis1.png" alt="Analysis"></p>
+
+<p><em>WDCanvasController</em> looks very bright on the heat map so you can bring it down to check out further. </p>
+
+<p>Zoom in (CMD+.) to reveal more information.</p>
+
+<p><img src="img/analysis2.png" alt="Analysis"></p>
+
+<p>Move <em>WDCanvasController</em> to a blank space. </p>
+
+<p>Select <strong>Object &gt; Show all Related</strong>. All the objects that depend on or are depended on by will arrange themselves nearby.</p>
+
+<p><img src="img/analysis3.png" alt="Analysis"></p>
+
+<p>Three of the objects that <em>WDCanvasController</em> depends on seem to have a high density of links. </p>
+
+<p>Look at little closer at them. All three are heavily depended on. </p>
+
+<p><img src="img/analysis4.png" alt="Analysis"></p>
+
+<p>These files would be interesting places to start if you wanted to investigate the code base further. </p>
+
+<p>Also check out the classes that adopt <em>NSCoding</em>. These would be good places to start if you wanted to look at the archiving format. </p>
+
+<ol>
+<li>Find NSCoding in the object list. </li>
+<li>Drag it to the map. Dragging from the object list will reposition an object to its dropped location. You don&rsquo;t need to hunt it down on the map.</li>
+<li>Object &gt; Show all Related…</li>
+</ol>
+
+<p><img src="img/analysis5.png" alt="Analysis"></p>
+
+<p>If the link drawing is confusing, you can switch off aspects in the <strong>View menu</strong></p>
+
+<p><img src="img/view_menu.png" alt="Analysis"></p>
+
+<ul>
+<li><strong>Draw Dependancy Lines</strong> controls all the <em>depends-on</em> relationship links.</li>
+<li><strong>Draw Only Coupled Objects</strong> restricts dependancy drawing to objects that depend on each other. </li>
+<li><strong>Draw Protocol Adoptions</strong> controls links between Protocols and their adoptees. </li>
+<li><strong>Draw Subclass lines</strong> controls the links between Subclassed objects and also Extensions.</li>
+<li><strong>Hide Heat Map</strong> prevents the heat map (circles) from being drawn.</li>
+<li>** </li>
+</ul>
+
+<h3 id="toc_31">Summary</h3>
+
+<p>Theres lots more you can do with the analysis. You don&rsquo;t have to have all objects on screen at once. Remember <strong>Delete</strong> to remove from map. <strong>Alt+Delete</strong> to really delete. </p>
+
+
+
+
+</body>
+
+</html>
